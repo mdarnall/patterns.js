@@ -22,4 +22,17 @@ describe('Functions', function(){
     }
     add.name.should.equal('add');
   });
+
+  describe('Immediate Functions', function(){
+    
+    it('create local scope', function(){
+      (function(){
+        var today = new Date();
+        console.log(today.toString());
+      })();
+      global.should.not.have.property('today');
+
+    });
+
+  });
 });

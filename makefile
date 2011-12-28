@@ -1,7 +1,7 @@
 test:
 	mocha \
 		--reporter spec \
-		--require should \
+		--require should ./src/Klass \
 		--growl \
 		--watch \
 		spec/*.js

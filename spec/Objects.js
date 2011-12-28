@@ -54,8 +54,6 @@ describe('Objects', function(){
 
 			var ipad = new iPad();
 			ipad.should.not.have.property('name');
-			ipad.getName().should.equal('ipad');
-
 		});
 
 		it('object literals can have private members', function(){
@@ -71,6 +69,38 @@ describe('Objects', function(){
 			toy.should.not.have.property('name');
 			toy.getName().should.equal('ipod');
 		});
+
+		
+	});
+
+	it('can have static members', function(){
+		var Toy = function (){};
+		Toy.isSafe = function () {
+			return true;
+		};
+
+		Toy.isSafe().should.be.true;
+	});
+
+	it('can have private static members',  function () {
+		var Toy = (function () {
+			var id = 0,NewToy;
+			NewToy = function(){
+				id += 1;
+			};
+
+			NewToy.prototype = {
+				getLastId : function (){
+					return id;
+				}
+			};
+			return NewToy;
+		}());
+
+		var toy_one = new Toy();
+		toy_one.getLastId().should.equal(1);
+		var toy_two = new Toy();
+		toy_two.getLastId().should.equal(2);
 
 	});
 });

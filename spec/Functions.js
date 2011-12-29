@@ -1,7 +1,6 @@
 describe('Functions', function(){
 
   it('can be a named expressions', function(){
-    
     var add = function add(a,b){
       return a+b;
     };
@@ -23,16 +22,45 @@ describe('Functions', function(){
     add.name.should.equal('add');
   });
 
-  describe('Immediate Functions', function(){
-    
+  describe('scope', function(){
     it('create local scope', function(){
       (function(){
         var today = new Date();
-        console.log(today.toString());
       })();
       global.should.not.have.property('today');
 
     });
-
   });
+
+  describe('Invocation', function(){
+		describe('Apply', function(){
+		
+			var add = function(a,b){
+				return a+b;
+			};
+			it('can be applied', function(){
+				var result = add.apply(null, [1,2]);
+				result.should.equal(3);
+			});
+			it('can be called', function  () {
+				var result = add.call(null,1,2);
+				result.should.equal(3);
+			});
+		});
+    describe('method', function (){
+      var counter = {
+        value : 0, 
+        increment : function () { 
+          this.value += 1;
+        }
+      };
+
+      it('has a reference to the object', function (){
+        counter.increment();
+        counter.value.should.equal(1);
+      });
+    
+    });
+  });
+  
 });

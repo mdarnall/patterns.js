@@ -8,7 +8,7 @@ Animal.prototype = {
   }
 };
 
-describe('Prototype Inheritence', function () {
+describe('Pseudoclassical Inheritance', function () {
   // set the prototype to a new instance of the parent
   var Dog = function(){};
   Dog.prototype = new Animal();
@@ -91,7 +91,7 @@ describe('Proxy constructor pattern', function (){
   });
 
   describe('Klass sugar for proxy contructor pattern', function (){
-    var Klass = require('../src/Klass').Klass;
+    var Klass = require('../../src/Klass').Klass;
 
     var Man = Klass(null, {
 
@@ -113,12 +113,16 @@ describe('Proxy constructor pattern', function (){
 
     it('inherits from object if no parent is passed', function (){
       var man = new Man('Adam');
-      Man.parent.should.equal(Object.prototype);
+      man.should.be.an.instanceof(Object);
     });
     it('inherits from objects', function (){
-    
       var superAdam = new SuperHuman('Adam');
-      superAdam.getName().should.equal('I am Adam');
+      superAdam.should.be.an.instanceof(Man)
+        .and.an.instanceof(SuperHuman);
+    });
+    it('can have overriden methods', function (){
+      var super = new SuperHuman('Adam');
+      super.getName().should.equal('I am Adam');
     });
 
   });

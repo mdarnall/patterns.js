@@ -9,12 +9,7 @@ describe('Objects', function(){
     };
 	});
 	
-	it('Can be created by a literal', function(){
-		var obj = {};
-		obj.should.be.a('object');
-	});
-
-	it('Can have properties', function (){
+	it('has properties that can be read', function (){
 		dog.should.have.property('name');
 		// properties can be accessed both ways
 		dog['name'].should.equal('benji');
@@ -23,8 +18,30 @@ describe('Objects', function(){
 	it('Can have methods', function(){
    dog.getName().should.equal('benji');
 	});
+	it('can be enumerated over', function (){
+		var name, i = 0;
+		for(name in dog){
+			++i;
+		}
+		i.should.equal(2);
+	});
+	it('can have its properties deleted', function (){
+		delete dog.name;
+		dog.should.not.have.property('name');
+	});
 
 	describe('creation patterns', function(){
+		
+		describe('literals', function (){
+			it('Can be created by a literal', function(){
+				var obj = {};
+				obj.should.be.a('object');
+			});
+
+			it('has a link to the Object prototype', function (){
+				dog.__proto__.should.equal(Object.prototype);
+			});
+		});
 		
 		it('custom constructors can create private members', function(){
 			function Toy (name){

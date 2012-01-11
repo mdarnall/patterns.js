@@ -23,7 +23,7 @@ describe('Functions', function(){
   });
 
   describe('scope', function(){
-    it('create local scope', function(){
+    it('is created by functions', function(){
       (function(){
         var today = new Date();
       })();

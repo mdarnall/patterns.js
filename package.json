@@ -1,0 +1,9 @@
+{
+	"name" : "patterns.js", 
+	"version" : "0.0.1", 
+	"description" : "A collection of JavaScript patterns", 
+	"dependencies" : {
+		"mocha" : ">=0.7.1", 
+		"should" : ">=0.4.2"
+	}
+}

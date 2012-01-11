@@ -1,9 +1,9 @@
-test:
+TESTFILES := $(shell find spec -name "*.js" -type f)
+test: 
 	mocha \
 		--reporter spec \
-		--require should ./src/Klass \
+		--require should \
 		--growl \
-		--watch \
-		spec/*.js
+		$(TESTFILES)
 
 .PHONY : test

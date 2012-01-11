@@ -19,6 +19,16 @@ describe('Prototypal Inheritance', function (){
 		cat.should.have.property('getName');	
 	});
 
+	it('can create a new object with properties', function (){
+		var cat = Object.create(mammal, {
+			age : {
+					value : 5
+			}
+		});
+
+		cat.should.have.property('age');
+	});
+
 	it('can create a new object with the prototype chain', function (){
 		var snake = Object.create(new Reptile());
 		snake.should.have.property('getName');

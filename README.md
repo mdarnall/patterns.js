@@ -1,7 +1,7 @@
 ### patterns.js
 
-This is the complementary code repository for an ongoing blog post / set
-of notes about core JavaScript concepts and patterns. It is done is a
+This is the complementary code repository for an ongoing [blog post / set
+of notes](http://blog.mdarnall.com/blog/2010/12/05/javascript-patterns/) about core JavaScript concepts and patterns. It is done is a
 BDD style set of specifications using the [Mocha](http://visionmedia.github.com/mocha/) testing framework and node.
 
 ##### Running the code

@@ -16,6 +16,7 @@
     };
 
     // inherit via the proxy prototype pattern
+    // new comment
     Parent = Parent || Object;
 
     F = function (){};

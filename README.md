@@ -8,4 +8,4 @@ BDD style set of specifications using the [Mocha](http://visionmedia.github.com/
 1. Clone the repo
 2. Use NPM to install dependencies: 
 	* `npm install path/to/patterns.js`
-3. Run via `$ make test`
+3. Run via `$ npm test`

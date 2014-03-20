@@ -1,8 +1,22 @@
 {
 	"name" : "patterns.js", 
-	"version" : "0.0.1", 
-	"description" : "A collection of JavaScript patterns", 
-	"dependencies" : {
+	"version" : "1.0.0",
+	"description" : "A collection of JavaScript patterns",
+    "scripts": {
+        "test": "make test"
+    },
+
+    "author": {
+        "name": "Matt Darnall",
+        "email": "mdarnall@gmail.com",
+        "url": "http://mdarnall.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/mdarnall/patterns.js.git"
+    },
+
+    "dependencies" : {
 		"mocha" : ">=0.7.1", 
 		"should" : ">=0.4.2"
 	}
